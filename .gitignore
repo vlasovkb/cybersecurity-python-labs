@@ -1,0 +1,13 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Ruff
+.ruff_cache/
+
+# Generated laboratory data
+labs/lab01/data/users.csv
+labs/lab01/data/log.json
