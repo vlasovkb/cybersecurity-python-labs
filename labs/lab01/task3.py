@@ -7,7 +7,6 @@ from pathlib import Path
 
 from shared.student import STUDENT_NAME, VARIANT_NUMBER
 
-
 MIN_PASSWORD_LENGTH = 8
 SALT = f"{VARIANT_NUMBER:05d}"
 
@@ -17,6 +16,7 @@ LOG_FILE = DATA_DIR / "log.json"
 
 
 class ValidationError(Exception):
+    pass
 
 
 def generate_hash(password: str, salt: str = "00000") -> str:
@@ -27,9 +27,7 @@ def generate_hash(password: str, salt: str = "00000") -> str:
     if len(password) < MIN_PASSWORD_LENGTH:
         raise ValidationError("Пароль занадто короткий.")
 
-    return hashlib.sha1(
-        (password + salt).encode("utf-8")
-    ).hexdigest()
+    return hashlib.sha1((password + salt).encode("utf-8")).hexdigest()
 
 
 def create_user(username, password):
@@ -82,16 +80,12 @@ def log_event(function):
         finally:
             DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-            username = (
-                args[0] if args else kwargs.get("username")
-            )
+            username = args[0] if args else kwargs.get("username")
             event = {
                 "event": "login",
                 "user": username,
                 "result": result,
-                "timestamp": datetime.now().strftime(
-                    "%Y-%m-%d %H:%M:%S"
-                ),
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 "args": list(args),
                 "kwargs": kwargs,
             }
@@ -125,9 +119,7 @@ users_db = []
 @log_event
 def login(username: str, password: str) -> bool:
     if not username or not password:
-        raise ValueError(
-            "Логін або пароль не можуть бути порожніми."
-        )
+        raise ValueError("Логін або пароль не можуть бути порожніми.")
 
     password_hash = generate_hash(password, SALT)
 
@@ -177,7 +169,7 @@ def main():
         print("Файл не знайдено.")
     except PermissionError:
         print("Недостатньо прав доступу.")
-    except IOError:
+    except OSError:
         print("Помилка введення/виведення.")
     except ValidationError as error:
         print(f"Помилка валідації: {error}")

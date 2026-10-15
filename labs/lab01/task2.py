@@ -1,6 +1,5 @@
 from shared.student import STUDENT_NAME, VARIANT_NUMBER
 
-
 USERS = {
     "security_chief": {
         "role": "security_officer",
@@ -104,10 +103,7 @@ def main():
             else:
                 result = f"DENY ({reason})"
 
-            print(
-                f"user=[{username}] resource=[{resource_name}] "
-                f"-> {result}"
-            )
+            print(f"user=[{username}] resource=[{resource_name}] -> {result}")
 
 
 if __name__ == "__main__":

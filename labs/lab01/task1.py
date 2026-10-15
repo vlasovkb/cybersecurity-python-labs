@@ -2,7 +2,6 @@ import random
 
 from shared.student import STUDENT_NAME, VARIANT_NUMBER
 
-
 PASSWORDS = [
     "UserPass1!",
     "temp",
@@ -47,16 +46,11 @@ def check_password(password, all_passwords):
     all_required = has_digit and has_upper and has_special
 
     if all_required:
-        if (
-            len(password) >= min_length + 4
-            and all_passwords.count(password) == 1
-        ):
+        if len(password) >= min_length + 4 and all_passwords.count(password) == 1:
             return "Дуже сильний"
         return "Сильний"
 
-    criteria_count = sum(
-        (has_digit, has_upper, has_special, has_lower)
-    )
+    criteria_count = sum((has_digit, has_upper, has_special, has_lower))
 
     if criteria_count >= 2:
         return "Середній"
