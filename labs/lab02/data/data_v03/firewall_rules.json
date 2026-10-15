@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "source": "10.0.0.0/8",
+    "destination": "192.168.10.10",
+    "port": "443",
+    "action": "ALLOW"
+  },
+  {
+    "id": 2,
+    "source": "10.0.0.0/8",
+    "destination": "192.168.10.10",
+    "port": "443",
+    "action": "ALLOW"
+  },
+  {
+    "id": 3,
+    "source": "10.0.0.0/8",
+    "destination": "192.168.10.10",
+    "port": "443",
+    "action": "DENY"
+  },
+  {
+    "id": 4,
+    "source": "0.0.0.0/0",
+    "destination": "192.168.10.20",
+    "port": "22",
+    "action": "ALLOW"
+  },
+  {
+    "id": 5,
+    "source": "192.168.1.0/24",
+    "destination": "10.10.0.5",
+    "port": "ANY",
+    "action": "ALLOW"
+  },
+  {
+    "id": 6,
+    "source": "172.16.5.10",
+    "destination": "10.10.0.10",
+    "port": "53",
+    "action": "ALLOW"
+  },
+  {
+    "id": 7,
+    "source": "172.16.5.10",
+    "destination": "10.10.0.10",
+    "port": "53",
+    "action": "DENY"
+  },
+  {
+    "id": 8,
+    "source": "999.10.1.1",
+    "destination": "10.10.0.11",
+    "port": "80",
+    "action": "ALLOW"
+  },
+  {
+    "id": 9,
+    "source": "192.168.2.0/33",
+    "destination": "10.10.0.12",
+    "port": "443",
+    "action": "DENY"
+  },
+  {
+    "id": 10,
+    "source": "192.168.3.15",
+    "destination": "300.1.1.1",
+    "port": "25",
+    "action": "ALLOW"
+  },
+  {
+    "id": 11,
+    "source": "203.0.113.0/24",
+    "destination": "192.168.10.50",
+    "port": "3389",
+    "action": "DENY"
+  },
+  {
+    "id": 12,
+    "source": "198.51.100.7",
+    "destination": "192.168.10.51",
+    "port": "8080",
+    "action": "ALLOW"
+  },
+  {
+    "id": 13,
+    "source": "0.0.0.0/0",
+    "destination": "192.168.10.99",
+    "port": "ANY",
+    "action": "ALLOW"
+  },
+  {
+    "id": 14,
+    "source": "10.20.30.40",
+    "destination": "192.168.50.1",
+    "port": "22",
+    "action": "BLOCK"
+  }
+]

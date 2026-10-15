@@ -1,0 +1,14 @@
+2026-10-15 12:00:28,385 [INFO] Parsing firewall rules from labs/lab02/data/data_v03/firewall_rules.json...
+2026-10-15 12:00:28,385 [INFO] Total rules parsed: 14. Validating IP syntax and rule logic...
+2026-10-15 12:00:28,386 [INVALID] Rule #8: invalid source IP '999.10.1.1'
+2026-10-15 12:00:28,386 [INVALID] Rule #9: invalid source mask '/33' in '192.168.2.0/33'
+2026-10-15 12:00:28,386 [INVALID] Rule #10: invalid destination IP '300.1.1.1'
+2026-10-15 12:00:28,386 [INVALID] Rule #14: invalid action 'BLOCK' (expected ALLOW or DENY)
+2026-10-15 12:00:28,386 [DUPLICATE] Rule #2 duplicates Rule #1 (ALLOW 10.0.0.0/8 -> 192.168.10.10:443)
+2026-10-15 12:00:28,386 [CONFLICT] Rule #1 (ALLOW 10.0.0.0/8 -> 192.168.10.10:443) conflicts with Rule #3 (DENY 10.0.0.0/8 -> 192.168.10.10:443)
+2026-10-15 12:00:28,386 [CONFLICT] Rule #6 (ALLOW 172.16.5.10 -> 10.10.0.10:53) conflicts with Rule #7 (DENY 172.16.5.10 -> 10.10.0.10:53)
+2026-10-15 12:00:28,386 [HIGH-RISK] Rule #4: ALLOW 0.0.0.0/0 -> 192.168.10.20:22 - source 0.0.0.0/0 is open to the whole Internet (SSH publicly accessible)
+2026-10-15 12:00:28,386 [HIGH-RISK] Rule #5: ALLOW 192.168.1.0/24 -> 10.10.0.5:ANY - all ports are allowed
+2026-10-15 12:00:28,386 [HIGH-RISK] Rule #13: ALLOW 0.0.0.0/0 -> 192.168.10.99:ANY - unlimited exposure (any source, any port)
+2026-10-15 12:00:28,387 [INFO] Security report successfully exported to labs/lab02/data/fw_audit_report.json
+2026-10-15 12:00:28,387 [INFO] Cleaned rule list (9 rules) saved to labs/lab02/data/fw_audit_report_cleaned_rules.json
