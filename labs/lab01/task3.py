@@ -1,7 +1,7 @@
 import csv
 import hashlib
 import json
-from datetime import datetime
+from datetime import UTC, datetime
 from functools import wraps
 from pathlib import Path
 
@@ -85,7 +85,7 @@ def log_event(function):
                 "event": "login",
                 "user": username,
                 "result": result,
-                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "timestamp": datetime.now(UTC).strftime("%Y-%m-%d %H:%M:%S"),
                 "args": list(args),
                 "kwargs": kwargs,
             }
